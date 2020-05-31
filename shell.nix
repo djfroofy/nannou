@@ -12,7 +12,7 @@ pkgs.mkShell {
   RUST_SRC_PATH = "${rust}/lib/rustlib/rust/src";
   CARGO_INSTALL_ROOT = "${toString ./.}/.cargo";
 
-  buildInputs = with pkgs; [
+  buildInputs = [
     pkgs.pkg-config
     pkgs.alsaLib.dev
     pkgs.xlibsWrapper
@@ -20,8 +20,9 @@ pkgs.mkShell {
     pkgs.python3
     pkgs.cmake
     pkgs.openssl
+
     # Rust, Cargo from nightly channel
-    rust-nightly-channel.rust
-    rust-nightly-channel.cargo
+    rust
+    cargo
   ];
 }

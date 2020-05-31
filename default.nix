@@ -1,5 +1,6 @@
-{ sources ? import ./nix/sources.nix
-, pkgs ? import sources.nixpkgs {}
+{
+  sources ? import ./nix/sources.nix,
+  pkgs ? import sources.nixpkgs {}
 }:
 let
   rust = import ./nix/rust.nix { inherit sources; };
@@ -14,14 +15,14 @@ in naersk.buildPackage {
     filter = filterTarget;
   };
   nativeBuildInputs = with pkgs; [
-    pkgconfig
+    pkg-config
     cmake
+    python3
   ];
   buildInputs = with pkgs; [
     alsaLib.dev
     xlibsWrapper
     xorg.libxcb.dev
-    python3
     openssl
   ];
   remapPathPrefix = true;
