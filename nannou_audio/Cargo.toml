@@ -15,5 +15,5 @@ cpal = "0.11"
 failure = "0.1"
 sample = "0.10"
 
-[features]
-asio = ["cpal/asio"]
+#[features]
+#asio = ["cpal/asio"]
