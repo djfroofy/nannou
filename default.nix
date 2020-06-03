@@ -20,10 +20,13 @@ in naersk.buildPackage {
     python3
   ];
   buildInputs = with pkgs; [
-    alsaLib.dev
-    xlibsWrapper
-    xorg.libxcb.dev
+    alsaLib
     openssl
+    xlibsWrapper
+    xorg.libxcb
+    xorg.libXcursor
+    xorg.libXi
+    xorg.libXrandr
   ];
   remapPathPrefix = true;
 }
